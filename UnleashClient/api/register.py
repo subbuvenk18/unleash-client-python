@@ -27,7 +27,7 @@ def register_client(url: str,
     :param supported_strategies:
     :return: true if registration successful, false if registration unsuccessful or exception.
     """
-    registation_request = {
+    registration_request = {
         "appName": app_name,
         "instanceId": instance_id,
         "sdkVersion": "{}:{}".format(SDK_NAME, SDK_VERSION),
@@ -41,7 +41,7 @@ def register_client(url: str,
         LOGGER.info("Registration request information: %s", registation_request)
 
         resp = requests.post(url + REGISTER_URL,
-                             data=json.dumps(registation_request),
+                             data=json.dumps(registration_request),
                              headers={**custom_headers, **APPLICATION_HEADERS},
                              timeout=REQUEST_TIMEOUT)
 
